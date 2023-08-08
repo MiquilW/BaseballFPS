@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://ds1r36ekqqe26"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://pdkkcsf7y7gl" path="res://bounce.tres" id="1_qfpjd"]
+[ext_resource type="Texture2D" uid="uid://ojck5wq5na10" path="res://addons/kenney_prototype_textures/purple/texture_01.png" id="2_yps04"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gohbk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6v5l"]
+albedo_texture = ExtResource("2_yps04")
+
+[sub_resource type="SphereMesh" id="SphereMesh_hw23h"]
+
+[node name="Ball" type="RigidBody3D" groups=["ball"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.98247, 2.3456, 3.04404)
+collision_layer = 7
+collision_mask = 7
+mass = 0.64
+physics_material_override = ExtResource("1_qfpjd")
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_gohbk")
+
+[node name="BallMesh" type="MeshInstance3D" parent="CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_g6v5l")
+mesh = SubResource("SphereMesh_hw23h")
+skeleton = NodePath("../../..")

@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://db5vxgtemxqs3"]
+
+[ext_resource type="Script" path="res://Target.gd" id="1_5j3xe"]
+[ext_resource type="Texture2D" uid="uid://oyu7f2nfj0nb" path="res://addons/kenney_prototype_textures/light/texture_06.png" id="2_h2m2j"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_prxay"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwy4o"]
+albedo_texture = ExtResource("2_h2m2j")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_yk0ja"]
+
+[node name="Target" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.97552, 1, -8.75248)
+collision_layer = 7
+collision_mask = 7
+max_contacts_reported = 2
+contact_monitor = true
+script = ExtResource("1_5j3xe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_prxay")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_bwy4o")
+mesh = SubResource("CapsuleMesh_yk0ja")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
