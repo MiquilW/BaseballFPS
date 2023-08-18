@@ -241,5 +241,5 @@ libraries = {
 }
 
 [node name="RayCast3D" type="RayCast3D" parent="Neck/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, -0.018406, -0.999962, 0, 2.10492, -0.00874393, 0.00205225, -0.0363814, 0.00227147)
+transform = Transform3D(1, 0, 0, 0, -0.0221659, -0.999962, 0, 2.5349, -0.00874393, 0.00205225, -0.0363814, 0.00227147)
 collision_mask = 2
